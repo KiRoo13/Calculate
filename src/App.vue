@@ -1,16 +1,26 @@
 <template>
-  <CalculateIn></CalculateIn>
+  <div>
+    <CalculateIn></CalculateIn>
+    <HelloWorld :mas="massege"></HelloWorld>
+  </div>
 </template>
 
 <script>
 
 import CalculateIn from './components/CalculateIn.vue'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    CalculateIn
+    CalculateIn,
+    HelloWorld
+},
+data() {
+  return {
+    massege: 'Component template should contain exactly one root element.'
   }
+},
 }
 </script>
 
