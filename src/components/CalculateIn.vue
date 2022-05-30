@@ -3,33 +3,33 @@
     <h1 class="hed">Калькулятор</h1>
     <div class="calculate_contener">
       <div class="calculate_top">
-        <input v-model="operand1" v-bind:disabled="display2" placeholder="Введите 1 число" class="bottom" type="text"> 
-        <input v-model ="operand2" v-bind:disabled="display" placeholder="Введите 2 число" type="text"> 
-        <span> {{ result }} </span>
+        <input v-model="operand1" name="operand1" v-bind:disabled="display2" placeholder="Введите 1 число" class="bottom" type="text"> 
+        <input v-model ="operand2" name="operand2" v-bind:disabled="display" placeholder="Введите 2 число" type="text"> 
+        <span name="result"> {{ result }} </span>
         <strong v-show="show"> {{ error }} </strong>
       </div>
       <div class="calculate_bottom">
-        <button @click="step"  class="calculate_btn">Возвести в степень</button>
-        <button @click="sum" class="calculate_btn">+</button>
-        <button @click="minus" class="calculate_btn">-</button>
-        <button @click="um" class="calculate_btn">*</button>
-        <button @click="del" v-bind:disabled="isButtonDisabled" class="calculate_btn">/</button>
-        <button @click="clear" class="calculate_btn">Очистить</button>
+        <button @click="step" name="step"  class="calculate_btn">Возвести в степень</button>
+        <button @click="sum" name="sum" class="calculate_btn">+</button>
+        <button @click="minus" name="minus" class="calculate_btn">-</button>
+        <button @click="um" name="um" class="calculate_btn">*</button>
+        <button @click="del" name="del" v-bind:disabled="isButtonDisabled" class="calculate_btn">/</button>
+        <button @click="clear" name="clear" class="calculate_btn">Очистить</button>
       </div>
     </div>
     <div class="calculate_inter">
       <input class="inter_inp" v-model="show2" type="checkbox" id="checkbox">
-      <label for="checkbox">Отабразить экранную клавивтуру</label>
-      <div class="inter_form" v-if="show2">
+      <label name="keyboard" for="checkbox">Отабразить экранную клавивтуру</label>
+      <div name="inter" class="inter_form" v-if="show2">
         <div>
-         <button class="btnn"
+         <button name="buttonkeyboard" class="btnn"
             @click="get"
             v-for="mas in masts" 
             :key = "mas"
             :value="mas"> 
             {{ mas }}
           </button>
-          <button class="remove" @click="remove">Remove</button>
+          <button name="remove" class="remove" @click="remove">Remove</button>
         </div>
         <div>
           <input type="checkbox" v-model="display" id="checkbox2">
@@ -55,12 +55,12 @@
        value: [],
        value2: [],
        show: false,
-       show2: '',
+       show2: true,
        result: '',
        operand1: '',
        operand2: '',
-       display: true,
-       display2: true
+       display: false,
+       display2: false
       }
     },
     methods: {
